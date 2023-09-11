@@ -13,7 +13,7 @@ class ChatSession : public ChatParticipant, public std::enable_shared_from_this<
 {
    private:
     boost::asio::ip::tcp::socket socket_;
-    ChatRoom room_;
+    ChatRoom& room_;
     ChatMessage readMsg_;
     std::deque<ChatMessage> writeMsgs_;
 

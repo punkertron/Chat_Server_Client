@@ -12,13 +12,14 @@ class Server
     boost::asio::signal_set signals_;
     boost::asio::ip::tcp::acceptor acceptor_;
 
+    ChatRoom room_;
+
     void awaitStop();
     void accept();
 
    public:
     explicit Server(const char* port);
     void run();
-    ChatRoom room_;
 };
 
 #endif  // SERVER_HPP
