@@ -47,6 +47,13 @@ class ChatMessage
         return bodyLength_;
     }
 
+    void setBodyLength(std::size_t new_length)
+    {
+        bodyLength_ = new_length;
+        if (bodyLength_ > maxBodyLength)
+            bodyLength_ = maxBodyLength;
+    }
+
     bool decodeHeader();
     void encodeHeader();
 };

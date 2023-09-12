@@ -8,5 +8,5 @@ target_compile_options(client PRIVATE
     -Wextra
     -O2
 )
-
-target_link_libraries(client Boost::system)
+target_compile_features(client PRIVATE cxx_std_17)
+target_link_libraries(client Boost::system ChatMessage)

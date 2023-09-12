@@ -4,11 +4,12 @@
 
 int main(int argc, char **argv)
 {
-    if (argc != 2)
+    if (argc != 3)
     {
-        std::cerr << "Usage: lient  <port>\n";
+        std::cerr << "Usage: client <host> <port>\n";
         return 1;
     }
-    Client c(argv[1]);
+    Client c(argv[1], argv[2]);
+    c.run();
     return 0;
 }

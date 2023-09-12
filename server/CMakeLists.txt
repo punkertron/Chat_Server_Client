@@ -8,5 +8,6 @@ target_compile_options(server PRIVATE
     -Wextra
     -O2
 )
-
-target_link_libraries(server Boost::system)
+target_compile_features(server PRIVATE cxx_std_17)
+target_link_libraries(server Boost::system ChatMessage)
+# target_link_libraries(server ChatMessage)
