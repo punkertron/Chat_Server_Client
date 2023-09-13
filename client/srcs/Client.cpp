@@ -4,7 +4,7 @@
 #include <thread>
 
 Client::Client(const char* host, const char* port) :
-    io_context_(1), endpoints_(boost::asio::ip::tcp::resolver(io_context_).resolve(host, port)), socket_(io_context_)
+    io_context_(), endpoints_(boost::asio::ip::tcp::resolver(io_context_).resolve(host, port)), socket_(io_context_)
 {
     connect();
 }
@@ -16,8 +16,10 @@ void Client::run()
         {
             io_context_.run();
         });
-    t.join();
+
     read_from_user();
+    t.join();
+    // t.detach();
 }
 
 void Client::read_from_user()
