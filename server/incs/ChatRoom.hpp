@@ -21,7 +21,7 @@ class ChatRoom
    public:
     void join(ChatPaticipantPtr participant);
     void leave(ChatPaticipantPtr participant);
-    void deliver(const ChatMessage& participant);
+    void deliver(const ChatMessage& participant, const ChatPaticipantPtr msgFrom);
 };
 
 #endif  // CHAT_ROOM_HPP

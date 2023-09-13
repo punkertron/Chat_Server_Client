@@ -45,7 +45,7 @@ void ChatSession::readBody()
                             {
                                 if (!ec)
                                 {
-                                    room_.deliver(readMsg_);
+                                    room_.deliver(readMsg_, self);
                                     readHeader();
                                 }
                                 else

@@ -7,14 +7,17 @@ void ChatRoom::join(ChatPaticipantPtr participant)
         participant->deliver(msg);
 }
 
-void ChatRoom::deliver(const ChatMessage& msg)
+void ChatRoom::deliver(const ChatMessage& msg, const ChatPaticipantPtr msgFrom)
 {
     recent_msgs_.push_back(msg);
     while (recent_msgs_.size() > maxRecentMsgs)
         recent_msgs_.pop_front();
 
     for (const auto& participant : participants_)
-        participant->deliver(msg);
+    {
+        if (participant != msgFrom)
+            participant->deliver(msg);
+    }
 }
 
 void ChatRoom::leave(ChatPaticipantPtr participant)
